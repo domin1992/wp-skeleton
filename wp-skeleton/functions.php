@@ -33,3 +33,19 @@ function foobar_func( $atts ){
 	return "foo and bar";
 }
 // ------------------------------------------- //
+
+// =========================================== //
+// Register widgets                            //
+// =========================================== //
+function register_widgets(){
+	register_sidebar(array(
+		'name'          => 'Example widget',
+		'id'            => 'example_widget',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '<h4>',
+		'after_title'   => '</h4>',
+	));
+}
+add_action('widgets_init', 'register_widgets');
+// ------------------------------------------- //
