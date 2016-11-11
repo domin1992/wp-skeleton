@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/reset.css">
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
   </head>
-  <body>
+  <body <?php body_class(); ?>>
     <header>
       <h1>HEADER</h1>
       <nav>
