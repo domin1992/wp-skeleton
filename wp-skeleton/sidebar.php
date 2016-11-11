@@ -7,4 +7,8 @@
   <ul>
     <?php wp_get_archives('type=monthly'); ?>
   </ul>
+  <h2><?php _e('Example Widget'); ?></h2>
+  <div>
+    <?php dynamic_sidebar('example_widget'); ?>
+  </div>
 </aside>
