@@ -54,18 +54,31 @@ function wp_skeleton_exampleShortcode($atts){
 // ------------------------------------------- //
 
 // =========================================== //
-// Register widgets                            //
+// Register sidebars                           //
 // =========================================== //
 /*
-function wp_skeleton_registerWidgets(){
+function wp_skeleton_registerSidebars(){
 	register_sidebar(array(
-		'name'          => 'Example widget',
-		'id'            => 'example_widget',
+		'name'          => 'Example sidebar',
+		'id'            => 'example_sidebar',
 		'before_widget' => '',
 		'after_widget'  => '',
 		'before_title'  => '<h4>',
 		'after_title'   => '</h4>',
 	));
+}
+add_action('widgets_init', 'wp_skeleton_registerSidebars');
+*/
+// ------------------------------------------- //
+
+// =========================================== //
+// Register widgets                            //
+// =========================================== //
+/*
+// require __DIR__.'/widgets/my-custom-widget.php';
+
+function wp_skeleton_registerWidgets(){
+	// register_widget('MyCustomWidget');
 }
 add_action('widgets_init', 'wp_skeleton_registerWidgets');
 */
@@ -176,10 +189,10 @@ add_action('init', 'wp_skeleton_registerCustomPostType');
 // Allow custom mime types                     //
 // =========================================== //
 /*
-function wp_skeleton_AllowMimeTypes($mimes){
+function wp_skeleton_allowMimeTypes($mimes){
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
 }
-add_filter('upload_mimes', 'wp_skeleton_AllowMimeTypes');
+add_filter('upload_mimes', 'wp_skeleton_allowMimeTypes');
 */
 // ------------------------------------------- //

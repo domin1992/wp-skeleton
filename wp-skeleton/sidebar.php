@@ -9,6 +9,6 @@
     </ul>
     <h2><?php _e('Example Widget'); ?></h2>
     <div>
-        <?php dynamic_sidebar('example_widget'); ?>
+        <?php dynamic_sidebar('example_sidebar'); ?>
     </div>
 </aside>
