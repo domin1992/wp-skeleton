@@ -196,3 +196,64 @@ function wp_skeleton_allowMimeTypes($mimes){
 add_filter('upload_mimes', 'wp_skeleton_allowMimeTypes');
 */
 // ------------------------------------------- //
+
+// =========================================== //
+// Youtube video wrap in container             //
+// =========================================== //
+/*
+function wp_skeleton_process_youtube_video($content){
+    $content = preg_replace('/<iframe.*src=\"(.*)\".*><\/iframe>/isU', '<div class="youtube-video-container">${0}</div>', $content);
+    return $content;
+}
+add_filter('the_content', 'wp_skeleton_process_youtube_video');
+*/
+// ------------------------------------------- //
+
+// =========================================== //
+// Get custom ACF field                        //
+// =========================================== //
+/*
+function wp_skeleton_getAcfCustomField($postId, $fieldName){
+    $field = get_field($fieldName, $postId);
+    if($field != '' && $field != NULL){
+        return $field;
+    }
+    else{
+        return null;
+    }
+}
+*/
+// ------------------------------------------- //
+
+// =========================================== //
+// Remove prefix from archive title            //
+// =========================================== //
+/*
+function wp_skeleton_removePrefixFromArchiveTitle($title){
+    if(is_category()){
+        $title = single_cat_title('', false);
+    }
+    elseif(is_archive()){
+        return post_type_archive_title();
+    }
+    elseif(is_tag()){
+        $title = single_tag_title('', false);
+    }
+    elseif(is_author()){
+        $title = '<span class="vcard">' . get_the_author() . '</span>';
+    }
+    return $title;
+}
+add_filter('get_the_archive_title', 'wp_skeleton_removePrefixFromArchiveTitle');
+*/
+// ------------------------------------------- //
+
+// =========================================== //
+// Check if is blog page                       //
+// =========================================== //
+/*
+function is_blog(){
+    return (is_archive() || is_author() || is_category() || is_home() || is_single() || is_tag()) && 'post' == get_post_type();
+}
+*/
+// ------------------------------------------- //
